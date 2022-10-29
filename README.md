@@ -28,4 +28,5 @@ yarn "mfe-shared"
 ```
 
 Go to Microservices-Based Online Store [Video](https://youtu.be/9Apf_SaA6nY) page
+
 Go to Microservices-Based Online Store [Description](https://ashot72.github.io//Microfrontends-Microservices-Based-Online-Store/index.html) page
