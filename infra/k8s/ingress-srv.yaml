@@ -1,0 +1,102 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+ rules:
+  - host: payments.onlinestore.com
+    http:
+      paths:
+        - path: /api/users/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: auth-srv
+              port:
+                number: 3000  
+        - path: /api/payments/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: payments-srv
+              port:
+                number: 3000    
+        - path: /?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: clientpayments-srv
+              port:
+                number: 3000           
+  - host: cart.onlinestore.com
+    http:
+      paths:
+        - path: /api/users/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: auth-srv
+              port:
+                number: 3000  
+        - path: /api/cart/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: cart-srv
+              port:
+                number: 3000
+        - path: /?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: clientcart-srv
+              port:
+                number: 3000   
+  - host: onlinestore.com
+    http:
+      paths:
+        - path: /api/users/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: auth-srv
+              port:
+                number: 3000  
+        - path: /api/categories/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: products-srv
+              port:
+                number: 3000   
+        - path: /api/products/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: products-srv
+              port:
+                number: 3000     
+        - path: /api/payments/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: payments-srv
+              port:
+                number: 3000    
+        - path: /api/cart/?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: cart-srv
+              port:
+                number: 3000
+        - path: /?(.*)
+          pathType: Prefix
+          backend:
+            service:
+              name: client-srv
+              port:
+                number: 3000     

@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clientpayments-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clientpayments
+  template:
+    metadata:
+      labels:
+        app: clientpayments
+    spec:
+      containers:
+       - name: clientpayments
+         image: ashot72/clientpayments
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clientpayments-srv
+spec:
+  selector:
+    app: clientpayments
+  ports:
+   - name: clientpayments
+     protocol: TCP
+     port: 3000
+     targetPort: 3000

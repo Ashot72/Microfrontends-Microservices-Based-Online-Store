@@ -1,0 +1,919 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:8.0pt;
+	margin-left:0in;
+	line-height:107%;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+.MsoChpDefault
+	{font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><b><span
+style='font-size:14.0pt;line-height:107%'>Microservices-Based Online Store with
+Microfrontends using Module Federation</span></b></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES style='font-size:14.0pt;line-height:107%'>Video:
+</span><a href="https://youtu.be/9Apf_SaA6nY"><span lang=ES style='font-size:
+14.0pt;line-height:107%'>https://youtu.be/9Apf_SaA6nY</span></a></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>GitHub Repo:
+</span><a
+href="https://github.com/Ashot72/Microfrontends-Microservices-Based-Online-Store"
+target="_blank"><span style='font-size:14.0pt;line-height:107%'>https://github.com/Ashot72/Microfrontends-Microservices-Based-Online-Store</span></a></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Micro-frontend
+architecture is a design approach in which front-end app is decomposed into
+individual into individual, semi-independent </span><span style='color:black'>'</span><span
+style='font-size:14.0pt;line-height:107%'>microapps</span><span
+style='color:black'>'</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>working
+loosely together. The micro-frontend concept is vaguely inspired by, and named
+after, microservices. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We already
+built Microservice based online store </span><a
+href="https://github.com/Ashot72/Microservices-based-Online-Store"
+target="_blank"><span style='font-size:14.0pt;line-height:107%'>https://github.com/Ashot72/Microservices-based-Online-Store</span></a><span
+style='font-size:14.0pt;line-height:107%'> </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=842 height=396 id="Picture 1" src="index_files/image001.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 1</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>In
+microservices-based online store the client part is composed of authentication,
+shopping cart, products and categories, and payments pages.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=1432 height=683 id="Picture 4" src="index_files/image002.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 2</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>This is the Products
+page to list our all the different products we have for sale.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=1329 height=652 id="Picture 6" src="index_files/image003.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 3</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>This is
+another page to show a Shopping Cart page, essentially all the items that a
+user intends to purchase.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=1091 height=251 id="Picture 7" src="index_files/image004.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 4</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We built it
+(Figure 1) using a classic approach where we have one single application
+deployed in a container.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Inside this
+project (client) we have a lot of code around implementing some kind of product
+listing page, a lot of code to implement something around a shopping cart page,
+</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>because all
+the code for our entire (client) application is in one single code base. We
+might refer to this as a monolithic single page application if we wanted to
+turn this into micro-front-end application. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We can look
+inside the application and try to identify each distinct and major feature
+inside of our app. We have Product Listing page and Shopping Cart page. After
+identifying each of these major features, </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>we can then
+split each of them into own separate code base. For example, we might have
+Product Listing page as a react single page application and code for Shopping
+Cart page inside of a totally separate</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>application,
+say, coded in Vue.js.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=771 height=261 id="Picture 8" src="index_files/image005.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 5</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Inside of a
+micro front end approach kind of application as much as possible, we try to
+prevent direct communication between these two distinct projects.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=791 height=441 id="Picture 9" src="index_files/image006.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 6</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Instead, our
+Product Listing application, maybe makes some kind of request to an API that
+manages all the data inside the user</span><span style='color:black'>'</span><span
+style='font-size:14.0pt;line-height:107%'>s shopping cart, and then whenever a
+user loads up the shopping cart</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>application
+to see their products that they have added to their cart, the shopping cart app
+would make a request to that same API and will get a listing of all the
+products that is in their cart.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>You notice
+that we do not have any kind of direct communication between these two smaller
+applications.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=791 height=521 id="Picture 10" src="index_files/image007.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 7</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Why would we
+use micro frontends, what benefit do we get to splitting these things up into
+separate apps. There is one very large benefit that we get, and that is that
+each of these applications can now be</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>thought of
+as separate independent app. There is no direct communication between them.
+That means we could assign development of Product Listing to, say, engineering
+team number one, and could</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>assign
+development of the Shopping Cart app to a totally separate engineering team.
+These can be two different engineering teams inside of our company, and they
+could decide to make radically different</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>decisions
+for implementing each of these projects. For example, the engineering team
+number one could decide to build this project using react and maybe engineering
+team number two could decide to implement</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>this using angular
+or something else.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=661 height=371 id="Picture 11" src="index_files/image008.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 8</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Whenever you
+hear the term Integration, you need to think about how we are going to kind of
+assemble together our different micro frontends.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>There are
+two different categories of integration. We have Built-Time integration, which
+is also known as Compile-Time, we have Run-Time integration also known as Client-Side.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>You can read
+and see that it is a very small distinction there, but it runs out that distinction
+is rather important.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>With
+Build-Time integration approach, we might have one team that is in charge of
+developing the Product List application. At some point time, they are going to
+finish up their project and</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>publish the
+NPM package to the NPM registry.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>In
+Build-Time Integration an Engineering Team who developed Product List will publish
+the NPM package to the NPM Registry. Then the other team who needs it will
+install Products List as a dependency</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>using the
+same kind of NPM install command. Though it is relatively easy to install it
+but there is a downside. The project that makes use of Product List has to
+re-deployed every time Product List is updated.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Also, there
+is coupling between the project that uses it and Product List which is
+something that we do not really want to do in a micro frontends</span><span
+style='color:black'>'</span><span style='font-size:14.0pt;line-height:107%'>
+architecture.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Once again,
+we might have an engineering team that develops the products list application.
+They would eventually decide that it is time to deploy the application at that
+point, rather than deploying their project</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>to, say, NPM
+or something like that. They would bundle up their project and deploy it to
+some static URL, something like, say, </span><a
+href="https://my-app.com/productlist.js"><span style='font-size:14.0pt;
+line-height:107%'>https://my-app.com/productlist.js</span></a><span
+style='font-size:14.0pt;line-height:107%'>. productlist.js JavaScript file has
+all the source code for</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>the products
+list application. Whenever a user navigates to my-app.com, we would load up the
+container app and at that point in time, the container app would then fetch
+that products list file and execute it.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>In this case
+the app that uses it gets access to the source code of products list after the
+project that uses it has been loaded into the browser. The big upside is that
+we can independently deploy the product list</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>application
+at any time without having to redeploy the app that uses it. Another big upside
+is that we can easily have different live versions of the products list
+application. We might be doing some kind of AB testing</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>where we
+have two versions of the products list and it can be the app that uses it to
+decide which of those two versions to use. The downside to this approach is
+that the tooling and the setup for it is way, way more</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>complicated.
+In our app we will use Run-Time Integration and we are going to implement it
+using Webpack 5 Module Federation.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Now, we want
+to make use of micro frontends and Webpack 5 Module Federation in our
+Microservice based online store app.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=781 height=481 id="Picture 24"
+src="index_files/image009.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 9</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Our client
+app (Figure 4) is a monolithic app. Suppose, now we have an engineering team
+that should be involved in the <i>Shopping Cart</i> development and another
+team to be busy with <i>Payments</i> module.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'><img
+border=0 width=1416 height=679 id="Picture 14" src="index_files/image010.jpg"></span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 10</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>You can see
+that you can go through the products but you cannot Add to Cart. So, they decided
+that authentication module will be implemented in the Shopping Cart micro
+frontend.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1467 height=772 id="Picture 16"
+src="index_files/image011.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 11</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>In our <i>cart</i>,
+<i>clientCart</i> and <i>clientPayments</i> projects we have very similar
+next.config.js files where we specify webpack configs.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1353 height=692 id="Picture 17"
+src="index_files/image012.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 12</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>In these 3
+config files we use Module Federation For Next.js</span><a
+href="https://www.npmjs.com/package/@module-federation/nextjs-mf"
+target="_blank"><span style='font-size:14.0pt;line-height:107%'>
+https://www.npmjs.com/package/@module-federation/nextjs-mf</span></a><span
+style='font-size:14.0pt;line-height:107%'> package by means of which we should</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>form a
+single application. In other words, our micro frontends should talk to each
+other at runtime.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=962 height=737 id="Picture 19"
+src="index_files/image013.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 13</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Let</span><span
+style='color:black'>'</span><span style='font-size:14.0pt;line-height:107%'>s
+look into the next.conig.js file of cart project. The name (name: </span><span
+style='color:black'>'</span><span style='font-size:14.0pt;line-height:107%'>client</span><span
+style='color:black'>'</span><span style='font-size:14.0pt;line-height:107%'>)
+should be unique, because it is used to distinguish between micro frontends.  </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>The idea is
+that the micro frontend apps have outputs called <i>exposes </i>and inputs
+called <i>entries</i>. <i>Exposes</i> define what micro frontend app exposes to
+other apps. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>It is not
+limited to just exposing the whole micro frontend app itself, it can also be
+just parts of it like functions, components, full-page contents, routing etc. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>The only
+limitation is that it has to be compliable to JavaScript. <i>Entries</i> define
+what the micro frontend app wants to use from other micro frontend apps.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1207 height=770 id="Picture 20"
+src="index_files/image014.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 14</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>You can see
+that the client app exposes header (</span><span style='color:black'>'</span><span
+style='font-size:14.0pt;line-height:107%'>./components/header.tsx</span><span
+style='color:black'>'</span><span style='font-size:14.0pt;line-height:107%'>)
+component which means that other micro frontends can use header from the <i>client</i>
+app.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1143 height=804 id="Picture 21"
+src="index_files/image015.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 15</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>The second
+entry is useRequest (</span><span style='color:black'>'</span><span
+style='font-size:14.0pt;line-height:107%'>./hooks/use-request.tsx</span><span
+style='color:black'>'</span><span style='font-size:14.0pt;line-height:107%'>)
+hook (function) which will be used by other micro frontends.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Third one is
+<i>ServerError</i> component.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1322 height=636 id="Picture 22"
+src="index_files/image016.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 16</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>In the
+config file (Figure 13) we also defined <i>remotes cart</i> and <i>payments </i>as
+keys. The key value </span><a
+href="mailto:cart@http://cart.onlinestore.com/_next/static/chunks/remoteEntry.js"><i><span
+style='font-size:14.0pt;line-height:107%'>cart@http://cart.onlinestore.com/_next/static/chunks/remoteEntry.js</span></i></a></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>refers to
+the name of the Module Federation Plugin defined in the clientCart (Shopping
+Cart) app</span><span style='color:black'>'</span><span style='font-size:14.0pt;
+line-height:107%'>s next.config.js and URL where the clientCart app</span><span
+style='color:black'>'</span><span style='font-size:14.0pt;line-height:107%'>s
+remoteEntry.js is hosting.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1349 height=775 id="Picture 23"
+src="index_files/image017.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 17</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>clientCart</span><span
+style='color:black'>'</span><span style='font-size:14.0pt;line-height:107%'>s
+(Shopping Cart) remote entry path is </span><a
+href="http://cart.onlinestore.com/_next/static/chunks/remoteEntry.js"><span
+style='font-size:14.0pt;line-height:107%'>http://cart.onlinestore.com/_next/static/chunks/remoteEntry.js</span></a></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>remoteEntry.js
+here allows the client app to dynamically load code from remote Shopping Cart
+server.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>There is
+also the <i>shared</i> property (Figure 13) where we write all the dependencies
+that we want to reuse if possible. If there are different required versions of
+that</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>same
+dependency, all different required versions will be loaded as fallback. This is
+not always good, for example different <i>react </i>and <i>react-dom </i>versions
+do not </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>always play
+together. Additional <i>singleton: true </i>is there to prevent this fallback
+logic, and forcing to not load different versions afterwards.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1121 height=1011 id="Picture 26"
+src="index_files/image018.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 18</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Here I show exposes
+and remotes for each micro frontend.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1121 height=851 id="Picture 27"
+src="index_files/image019.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 19</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We expose
+header from client and both Shopping Cart and Payments consume it.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1315 height=678 id="Picture 28"
+src="index_files/image020.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 20</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>This is the
+header defined inside the client project.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1378 height=647 id="Picture 29"
+src="index_files/image021.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 21</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We import
+header as </span><span style='color:black'>'</span><span style='font-size:14.0pt;
+line-height:107%'>client/header</span><span style='color:black'>'</span><span
+style='font-size:14.0pt;line-height:107%'> where client is the name specified
+in client</span><span style='color:black'>'</span><span style='font-size:14.0pt;
+line-height:107%'>s next.config.js (name: </span><span style='color:black'>'</span><span
+style='font-size:14.0pt;line-height:107%'>client</span><span style='color:black'>'</span><span
+style='font-size:14.0pt;line-height:107%'>) and header is the <i>header</i>
+entry exposed from it.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1382 height=660 id="Picture 30"
+src="index_files/image022.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 22</span></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;line-height:107%'>header</span></i><span
+style='font-size:14.0pt;line-height:107%'> in the Shopping Cart micro frontend (cart.onlinestore.com)
+exposed from the client (onlinestore.com). </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1121 height=851 id="Picture 31"
+src="index_files/image023.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 23</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Here cart is
+exposed from the Shopping Cart and consumed both in client and Payments micro frontends.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1300 height=632 id="Picture 32"
+src="index_files/image024.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 24</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Cart is
+exposed from the Shopping Cart micro frontend (red) and consumed inside the <i>client</i>
+(green).</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Next.js is
+used for server-side rendering of react application.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1213 height=832 id="Picture 33"
+src="index_files/image025.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 25</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>The module
+federation package we use is Client side only. This means we cannot use it for
+server-side rendering.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1394 height=694 id="Picture 34"
+src="index_files/image026.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 26</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>For
+server-side rendering </span><a
+href="https://app.privjs.com/buy/packageDetail?pkg=@module-federation/nextjs-ssr"
+target="_blank"><span style='font-size:14.0pt;line-height:107%'>https://app.privjs.com/buy/packageDetail?pkg=@module-federation/nextjs-ssr</span></a><span
+style='font-size:14.0pt;line-height:107%'> we should use
+@module-federation/nextjs-ssr package which is not free, so we implemented</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>only client-side
+module federation. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1028 height=847 id="Picture 35"
+src="index_files/image027.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 27</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We first
+imported cart code from Shopping Cart. We specified { ssr: false } meaning
+client side. We will see what would happen if we do not specify it later on.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>In this code
+on the server side (the red rectangle) we get cart data and pass it to imported
+&lt;RemoteCart /&gt; and on the client-side we just get props form Shopping
+Cart and pass it to &lt;RemoteCart/&gt;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1168 height=794 id="Picture 2"
+src="index_files/image028.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 28</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>I commented
+out our code and opened the existing comment. This time we do not have { ssr:
+false }. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=902 height=781 id="Picture 3"
+src="index_files/image029.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 29</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>If we click
+directly on </span><span style='color:black'>'</span><span style='font-size:
+14.0pt;line-height:107%'>Shopping Cart</span><span style='color:black'>'</span><span
+style='font-size:14.0pt;line-height:107%'> link we will see the error as server-side
+module federation is not enabled. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1123 height=330 id="Picture 5"
+src="index_files/image030.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 30</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>On the
+server we see that it returns fake cart (Shopping Cart) module.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1181 height=548 id="Picture 12"
+src="index_files/image031.jpg"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 31</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Now, if you
+click on Home then navigate to Shopping Cart then you will see the items as it
+is a client-side call.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1006 height=841 id="Picture 13"
+src="index_files/image032.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 32</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>If we enable
+module federation server-side rendering (which we did not as it costs some
+money) then it probably means that with the existing code (the green rectangle)</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>we can
+render it both on the client and server sides. No need to specify
+&lt;RemoteCart /&gt; and <i>call await client.get(</i></span><span
+style='color:black'>'</span><i><span style='font-size:14.0pt;line-height:107%'>/api/cart</span></i><span
+style='color:black'>'</span><i><span style='font-size:14.0pt;line-height:107%'>).</span></i></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></i></p>
+
+<p class=MsoNormal><img border=0 width=1121 height=851 id="Picture 18"
+src="index_files/image033.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 33</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>As we
+already stated authentication is also implemented in Shopping Cart micro
+frontend and consumed by client and Payments micro frontends.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1064 height=831 id="Picture 25"
+src="index_files/image034.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 34</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Regiter,
+Signin and Signout are consumed by Payments micro frontend. </span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1121 height=851 id="Picture 36"
+src="index_files/image035.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 35</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We expose
+useRequest hook from client which is consumed by Shopping Cart micro frontends.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1217 height=719 id="Picture 38"
+src="index_files/image036.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 36</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We consume
+userHook in Shopping Cart micro frontend to make api requests. We could consume
+it via module federation as we use it on the client side.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1377 height=581 id="Picture 39"
+src="index_files/image037.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 37</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We use the
+exact same code <i>build-clients.ts</i> both in client and cart micro frontends
+and cannot share it like useRequest because we use it on the server-side.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Our Shopping
+Cart and Payments micro frontends are running inside different pods.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=856 height=622 id="Picture 40"
+src="index_files/image038.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 38</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Windows hosts
+file is located in C:\Windows\System32\drivers\etc folder. We just have to add
+two lines both for cart.onlinestore.com and payments.onlinestore.com to run on <i>127.0.0.1</i>.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1284 height=716 id="Picture 41"
+src="index_files/image039.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 39</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Micro frontends
+running on 127.0.0.1.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1342 height=567 id="Picture 42"
+src="index_files/image040.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 40</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We created 2
+more deployments and added cart.onlinestore.com and payments.onlinestore.com in
+<i>host</i> section of ingress-srv.yaml file.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1261 height=679 id="Picture 43"
+src="index_files/image041.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 41</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We also
+published cart and payments microservices on Docker hub.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Because of
+runtime integration, and the exposed code compiling to JavaScript via Module
+Federation, the type information from Typescript is lost. For that reason</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>we create a
+shared library and link to each micro frontend to enable type support. We do it
+via linking.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=913 height=868 id="Picture 44"
+src="index_files/image042.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 42</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We created <i>mfe-shared</i>
+library and defined common interfaces. We run yarn build on that folder. Once
+it is successful, we will see dist folder and index.d.ts generated file.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=895 height=123 id="Picture 45"
+src="index_files/image043.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 43</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We run yarn
+link command.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1171 height=288 id="Picture 46"
+src="index_files/image044.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 44</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>We navigate
+to our micro frontends projects and run yarn link mfe-shared command.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1207 height=551 id="Picture 47"
+src="index_files/image045.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 45</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Now, you can
+import type from the shared library and have type support enabled.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1256 height=543 id="Picture 49"
+src="index_files/image046.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 46</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>In Payments
+micro frontend we specify module: {name: </span><span style='color:black'>'</span><span
+style='font-size:14.0pt;line-height:107%'>payments</span><span
+style='color:black'>'</span><span style='font-size:14.0pt;line-height:107%'>}
+object property. We pass it to header component to render the respective links
+on the header</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>that
+Payments micro frontend needs.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1196 height=583 id="Picture 50"
+src="index_files/image047.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 47</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>You see that
+Payments micro frontend has only one link Payments as a team working on this
+module does not care about other links. So, when getting the header from
+remotes, we pass</span></p>
+
+<p class=MsoNormal><i><span style='font-size:14.0pt;line-height:107%'>name</span></i><span
+style='font-size:14.0pt;line-height:107%'> identifier to get the links we need
+on the header.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1433 height=839 id="Picture 51"
+src="index_files/image048.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 48</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>What if we
+comment out the line and do not pass the name.  You see the error something
+went wrong and the reason inside the Chrome console.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><img border=0 width=1394 height=576 id="Picture 52"
+src="index_files/image049.png"></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Figure 49</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>The app did
+not break entirely because Header was wrapped inside react SafeComponent.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>This means
+that a breaking change in one micro frontend can have an impact on another one
+so micro frontends should be agreed on some predefined contracts.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>https://blog.mimacom.com/role-of-module-federation-in-micro-frontends/#:~:text=Exposes%20define%20what%20the%20micro,to%20be%20compilable%20to%20JavaScript.</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Typescript</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:14.0pt;line-height:107%'>Safe
+component</span></p>
+
+<p class=MsoNormal><span lang=ES style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+<p class=MsoNormal><span lang=ES style='font-size:14.0pt;line-height:107%'>&nbsp;</span></p>
+
+</div>
+
+</body>
+
+</html>

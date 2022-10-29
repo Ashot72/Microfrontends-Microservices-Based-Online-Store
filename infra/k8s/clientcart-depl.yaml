@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clientcart-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: clientcart
+  template:
+    metadata:
+      labels:
+        app: clientcart
+    spec:
+      containers:
+       - name: clientcart
+         image: ashot72/clientcart
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clientcart-srv
+spec:
+  selector:
+    app: clientcart
+  ports:
+   - name: clientcart
+     protocol: TCP
+     port: 3000
+     targetPort: 3000
