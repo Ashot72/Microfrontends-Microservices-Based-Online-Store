@@ -1,9 +1,9 @@
 # Microservices-Based Online Store with Microfrontends using Module Federation
-I implemented Microforntends on our [Microservice-Based Online Store](https://github.com/Ashot72/Microservices-based-Online-Store) using Module Federation and deployed it in the local Kubernetes pods.
+I implemented Microfrontends on our [Microservice-Based Online Store](https://github.com/Ashot72/Microservices-based-Online-Store) using Module Federation and deployed it in the local Kubernetes pods.
 Micro-frontend is a design approach where an application is split into multiple frontend applications. As a result, independent developers can work on each application. This approach significantly reduces the development time and process.
 
 Please read first how to deploy [Microservice-Based Online Store](https://github.com/Ashot72/Microservices-based-Online-Store).
-Because of runtime integration, and the exposed code compiling to Javascript via Module Federation, the type information from Typescript is lost. For that reason we create a shared library and link to each micro forntend to enable type support. We do it via linking.
+Because of runtime integration, and the exposed code compiling to JavaScript via Module Federation, the type information from Typescript is lost. For that reason, we create a shared library and link to each micro frontend  to enable type support. We do it via linking.
 
 ```
 # Navigate to mfe-shared folder
